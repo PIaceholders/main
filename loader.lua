@@ -9,16 +9,16 @@ pcall(function()
         local pfp
             
         local success, fail = pcall(function()
-            pfp = game:HttpGet(("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%ia&size=150x150&format=Png&isCircular=true"):format(game.Players.LocalPlayer.UserId))
+            pfp = game:HttpGet(("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%i&size=150x150&format=Png&isCircular=true"):format(game.Players.LocalPlayer.UserId))
         end)
 
         if success and not fail then
             pfp = http:JSONDecode(pfp)
 
             return pfp
-        elseif fail and not success then
-            return {data = {{imageUrl = backup}}}
         end
+            
+        return {data = {{imageUrl = backup}}}
     end
     
     local Data = {
