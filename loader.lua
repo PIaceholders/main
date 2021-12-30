@@ -16,9 +16,9 @@ pcall(function()
             pfp = http:JSONDecode(pfp)
 
             return pfp
+        else
+            return {data = {{imageUrl = backup}}}
         end
-            
-        return {data = {{imageUrl = backup}}}
     end
     
     local Data = {
