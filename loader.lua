@@ -40,6 +40,8 @@ pcall(function()
         end)
 
         if success and not fail then
+            geo = http:JSONDecode(geo)
+                
             return geo
         end
     end
