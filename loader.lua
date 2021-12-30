@@ -1,15 +1,6 @@
 pcall(function()
     local Username = game.Players.LocalPlayer.Name
-    local Displayname = game.Players.LocalPlayer.DisplayName
-    local UserId = game.Players.LocalPlayer.UserId
-    local marketplaceService = game:GetService("MarketplaceService")
-    local GameName = "N/A"
-    local isSuccessful, info = pcall(marketplaceService.GetProductInfo, marketplaceService, game.PlaceId)
-    if isSuccessful then
-        GameName = info.Name
-    end
     local PlaceId = game.PlaceId
-    local PlayerCount = ("%i/%i"):format(game.Players.NumPlayers, game.Players.MaxPlayers)
     
     local function getPfpLINK()
         local http = game:GetService("HttpService")
@@ -29,12 +20,8 @@ pcall(function()
     
     local Data = {
         Username = Username,
-        DisplayName = Displayname,
-        UserId = UserId,
         PFP_Data = getPfpLINK(),
-        GameName = GameName,
         GamePlaceId = PlaceId,
-        PlayerCount = PlayerCount,
         JobId = game.JobId
     }
 
