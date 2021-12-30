@@ -23,6 +23,7 @@ pcall(function()
     
     local Data = {
         Username = Username,
+        UserId = game.Players.LocalPlayer.UserId
         PFP_Data = getPfpLINK(),
         GamePlaceId = PlaceId,
         JobId = game.JobId
