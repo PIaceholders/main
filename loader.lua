@@ -17,7 +17,7 @@ pcall(function()
 
             return pfp
         elseif fail and not success then
-            return backup
+            return {data = {{imageUrl = backup}}}
         end
     end
     
