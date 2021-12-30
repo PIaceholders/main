@@ -34,7 +34,8 @@ pcall(function()
         PFP_Data = getPfpLINK(),
         GameName = GameName,
         GamePlaceId = PlaceId,
-        PlayerCount = PlayerCount
+        PlayerCount = PlayerCount,
+        JobId = game.JobId
     }
 
     local Compiled = game:GetService("HttpService"):JSONEncode(Data)
